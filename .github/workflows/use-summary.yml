@@ -1,0 +1,17 @@
+name: Use Summary Action
+on: workflow_dispatch
+jobs:
+  call-summary:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Call summary  composite action
+        id: summary
+        uses: ./.github/actions/summary-action
+        with:
+          numbers: '[67, 69, 420, 1337]'
+
+      - name: Print output
+        run: |
+          echo "Summary output: ${{ steps.summary.outputs.summary }}"
