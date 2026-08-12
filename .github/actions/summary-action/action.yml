@@ -13,6 +13,7 @@ runs:
   using: composite
   steps:
     - name: Summarize Numbers
+      shell: bash
       run: |
         echo "${{ inputs.numbers }}" >> python3 ci/print_summary.py > summary.json
         cat summary.json
