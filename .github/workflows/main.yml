@@ -1,5 +1,12 @@
 name: Main workflow
-on: push
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+    types: opened
 env:
   github_username: seralyne
   github_password: ${{ secrets.GITHUB_TOKEN }}
