@@ -20,6 +20,6 @@ runs:
     - name: Set output
       id: set-output
       shell: bash
-      run: echo "summary=$(cat summary.json)" >> $GITHUB_OUTPUT
+      run: echo "summary='$(cat summary.json)'" >> $GITHUB_OUTPUT
       
       
