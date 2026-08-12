@@ -1,0 +1,24 @@
+name: 'Summary Action'
+description: 'Summarize'
+inputs:
+  numbers: 
+    description: "JSON Array of Numbers"
+    required: true
+outputs:
+  summary:
+    description: "JSON Summary"
+
+
+runs:
+  using: composite
+  steps:
+    - name: Summarize Numbers
+      run: |
+        echo "${{ inputs.numbers }}" >> python3 ci/print_summary.py > summary.json
+        cat summary.json
+    - name: Set output
+      id: set-output
+      shell: bash
+      run: echo "summary=$(cat summary.json)" >> $GITHUB_OUTPUT
+      
+      
