@@ -15,7 +15,7 @@ runs:
     - name: Summarize Numbers
       shell: bash
       run: |
-        echo "${{ inputs.numbers }}" >> python3 ci/print_summary.py > summary.json
+        echo "${{ inputs.numbers }}" | python3 ci/print_summary.py > summary.json
         cat summary.json
     - name: Set output
       id: set-output
